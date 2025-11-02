@@ -1,22 +1,23 @@
 pipeline {
-  agent any
-  stages {
-    stage('Checkout') {
-      steps {
-            git(branch: 'main', url: 'https://github.com/16bhoomi2005/ExamJavaCodes.git')
-// Replace with your repo URL
-      }
-    }
-   stage('Build') {
-  steps {
-    bat 'javac HelloWorld.java'
-  }
-}
-stage('Run') {
-  steps {
-    bat 'java HelloWorld'
-  }
-}
+    agent any
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/Harshitha-project/expt4.git'
+            }
+        }
 
-  }
+        stage('Build') {
+            steps {
+                bat 'dir'  // to verify the file is present
+                bat 'javac helloworld.java'
+            }
+        }
+
+        stage('Run') {
+            steps {
+                bat 'java helloworld'
+            }
+        }
+    }
 }
