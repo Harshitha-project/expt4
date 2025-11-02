@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/Harshitha-project/expt4.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                bat 'dir'  // to verify the file is present
+                bat 'javac helloworld.java'
+            }
+        }
+
+        stage('Run') {
+            steps {
+                bat 'java helloworld'
+            }
+        }
+    }
+}
